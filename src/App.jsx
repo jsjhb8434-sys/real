@@ -8,7 +8,11 @@ import './App.css';
 function App() {
   return (
     <div className="app">
-      <Encabezado />
+      <Encabezado
+        titulo="Mis Tareas"
+        subtitulo="Organiza lo que tienes que hacer hoy"
+      />
+
       <Formulario />
       <Lista />
       <Item />
