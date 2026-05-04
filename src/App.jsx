@@ -1,14 +1,20 @@
-import './App.css'
+import Encabezado from './componentes/Encabezado';
+import Formulario from './componentes/Formulario';
+import Lista from './componentes/Lista';
+import Item from './componentes/Item';
+import PiePagina from './componentes/PiePagina';
+import './App.css';
+
 function App() {
-  // TODO aprendiz: cambia este título por el nombre de tu proyecto   
-  const tituloProyecto = "Mi primer proyecto React"
   return (
     <div className="app">
-      <h1>{tituloProyecto}</h1>
-      <p>Si ves este texto, React está funcionando 🎉</p>
+      <Encabezado />
+      <Formulario />
+      <Lista />
+      <Item />
+      <PiePagina />
     </div>
-  )
+  );
 }
 
-
-export default App  
+export default App;
