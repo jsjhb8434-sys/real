@@ -1,16 +1,12 @@
-// Item.jsx — recibe una tarea (objeto) por props
+// Item.jsx
+import './Item.css'
+
 function Item({ tarea }) {
-
-  if (!tarea) {
-    return <p>No hay tarea</p>
-  }
-
   return (
     <article className="item">
-      <h3>{tarea.texto}</h3>
-
-      <p>
-        Estado: {tarea.completada ? 'Completada' : 'Pendiente'}
+      <h3 className="item__texto">{tarea.texto}</h3>
+      <p className="item__estado">
+        {tarea.completada ? 'Completada' : 'Pendiente'}
       </p>
     </article>
   )
