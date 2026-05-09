@@ -1,4 +1,3 @@
-// Lista.jsx
 import './Lista.css'
 import Item from './Item'
 

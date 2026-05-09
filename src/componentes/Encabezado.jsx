@@ -1,4 +1,3 @@
-// Encabezado.jsx
 import './Encabezado.css'
 
 function Encabezado({ titulo, subtitulo }) {
