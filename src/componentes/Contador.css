@@ -1,0 +1,25 @@
+/* Contador.css */
+.contador {
+  margin-bottom: 32px;
+}
+
+.contador__saludo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.contador__resumen {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.contador__sep {
+  opacity: 0.4;
+}

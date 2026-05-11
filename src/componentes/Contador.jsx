@@ -1,18 +1,17 @@
-// Contador.jsx — ejemplo didactico, lo borraremos al final
-import { useState } from 'react'
+// Contador.jsx
+import './Contador.css'
 
-function Contador() {
-  const [contador, setContador] = useState(0)
-
+function Contador({ nombre, pendientes, enProgreso, completadas }) {
   return (
-    <div>
-      <p>Llevas {contador} clicks</p>
-      <button onClick={() => setContador(contador + 1)}>
-        Sumar uno
-      </button>
-      <button onClick={() => setContador(0)}>
-        Reiniciar
-      </button>
+    <div className="contador">
+      <h2 className="contador__saludo">Hola, {nombre}</h2>
+      <p className="contador__resumen">
+        <span>Tienes {pendientes} pendientes</span>
+        <span className="contador__sep">•</span>
+        <span>{enProgreso} en progreso</span>
+        <span className="contador__sep">•</span>
+        <span>{completadas} completadas</span>
+      </p>
     </div>
   )
 }

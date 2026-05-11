@@ -1,33 +1,21 @@
-import { useState } from 'react'
+// Item.jsx
 import './Item.css'
 
+const ETIQUETAS = {
+  pendiente:  'Pendiente',
+  progreso:   'En Progreso',
+  completada: 'Completada',
+}
+
 function Item({ tarea }) {
-  const [resaltado, setResaltado] = useState(false)
-
-  const manejarCompletar = (evento) => {
-    evento.stopPropagation()
-    alert(`Marcar como completada: ${tarea.texto}`)
-  }
-
-  const manejarEliminar = (evento) => {
-    evento.stopPropagation()
-    alert(`Eliminar: ${tarea.texto}`)
-  }
-
   return (
-    <article
-      className={resaltado ? 'item item--resaltado' : 'item'}
-      onClick={() => setResaltado(!resaltado)}
-    >
-      <div className="item__contenido">
-        <h3 className="item__texto">{tarea.texto}</h3>
-        <p className="item__estado">
-          {tarea.completada ? 'Completada' : 'Pendiente'}
-        </p>
-      </div>
-      <div className="item__acciones">
-        <button onClick={manejarCompletar}>✓</button>
-        <button onClick={manejarEliminar}>✕</button>
+    <article className={`item item--${tarea.estado}`}>
+      <p className="item__titulo">{tarea.titulo}</p>
+      <div className="item__footer">
+        <span className="item__fecha">📅 {tarea.fecha}</span>
+        <span className={`item__estado item__estado--${tarea.estado}`}>
+          {ETIQUETAS[tarea.estado]}
+        </span>
       </div>
     </article>
   )

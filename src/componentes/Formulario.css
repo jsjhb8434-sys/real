@@ -1,49 +1,117 @@
 /* Formulario.css */
+.formulario__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease;
+}
+
 .formulario {
-  background-color: white;
-  padding: 20px;
-  margin: 16px auto;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  max-width: 600px;
-}
-
-.formulario h2 {
-  margin: 0 0 12px 0;
-  font-size: 18px;
-}
-
-.formulario input {
+  background: var(--color-card);
+  border-radius: 16px;
+  padding: 32px;
   width: 100%;
-  padding: 10px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-bottom: 8px;
-  box-sizing: border-box;
+  max-width: 440px;
+  box-shadow: 0 20px 48px rgba(0,0,0,0.15);
+  animation: slideUp 0.25s ease;
 }
 
-.formulario input:focus {
+.formulario__titulo {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.formulario__grupo {
+  margin-bottom: 18px;
+}
+
+.formulario__label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.formulario__input,
+.formulario__select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  background: var(--color-bg);
   outline: none;
-  border-color: #1F3864;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.formulario__preview {
-  font-size: 13px;
-  color: #888;
-  margin: 0 0 12px 0;
+.formulario__input:focus,
+.formulario__select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(42,157,143,0.12);
 }
 
-.formulario button {
-  background-color: #1F3864;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
+.formulario__acciones {
+  display: flex;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.formulario__btn-cancelar {
+  flex: 1;
+  padding: 10px;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-btn);
+  font-family: var(--font-main);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
   cursor: pointer;
-  font-size: 14px;
+  transition: background 0.2s;
 }
 
-.formulario button:hover {
-  opacity: 0.9;
+.formulario__btn-cancelar:hover {
+  background: var(--color-bg);
+}
+
+.formulario__btn-guardar {
+  flex: 2;
+  padding: 10px;
+  background: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-btn);
+  font-family: var(--font-main);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.formulario__btn-guardar:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0);    }
 }

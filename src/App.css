@@ -1,39 +1,73 @@
 /* App.css */
-.app {
-  font-family: 'Segoe UI', Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #2A9D8F;
+  --color-primary-dark: #21867a;
+  --color-primary-light: #e8f5f4;
+  --color-pending: #6b7280;
+  --color-progress: #f59e0b;
+  --color-completed: #2A9D8F;
+  --color-bg: #f8fafc;
+  --color-sidebar: #ffffff;
+  --color-card: #ffffff;
+  --color-text: #1e293b;
+  --color-text-muted: #64748b;
+  --color-border: #e2e8f0;
+  --font-main: 'DM Sans', sans-serif;
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-sidebar: 2px 0 8px rgba(0,0,0,0.05);
+  --radius-card: 12px;
+  --radius-btn: 10px;
+  --sidebar-width: 200px;
+}
+
+/* ── Modo oscuro ── */
+.dark {
+  --color-bg: #0f172a;
+  --color-sidebar: #1e293b;
+  --color-card: #1e293b;
+  --color-text: #f1f5f9;
+  --color-text-muted: #94a3b8;
+  --color-border: #334155;
+  --color-primary-light: #134e4a;
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-sidebar: 2px 0 8px rgba(0,0,0,0.3);
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   min-height: 100vh;
-  background-color: #f5f5f5;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.boton-toggle {
-  display: block;
-  margin: 16px auto;
-  padding: 10px 24px;
-  background-color: #1F3864;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 15px;
+.app {
+  display: flex;
+  min-height: 100vh;
 }
 
-.boton-toggle:hover {
-  opacity: 0.85;
+.app__main {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  padding: 36px 48px;
+  min-height: 100vh;
 }
 
-/* Pantallas pequenas (celular) */
-@media (max-width: 600px) {
-  .encabezado__titulo {
-    font-size: 22px;
-  }
+#root {
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  transition: background-color 0.3s;
+}
 
-  .item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-  }
-
-  .lista {
-    padding: 0 8px;
-  }
+html, body {
+  min-height: 100vh;
+  background-color: var(--color-bg);
 }
