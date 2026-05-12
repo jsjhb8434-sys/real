@@ -47,3 +47,35 @@
   color: var(--color-text-muted);
   margin-left: 4px;
 }
+
+/* ── Tablet (768–1024px) → 2 columnas, completadas abajo ── */
+@media (max-width: 1024px) {
+  .lista__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  /* Completada ocupa las 2 columnas */
+  .lista__columna:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ── Celular grande (481–767px) → 1 columna ── */
+@media (max-width: 767px) {
+  .lista__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .lista__columna:last-child {
+    grid-column: auto;
+  }
+}
+
+/* ── Celular pequeño (≤480px) ── */
+@media (max-width: 480px) {
+  .lista__grid {
+    gap: 20px;
+  }
+}

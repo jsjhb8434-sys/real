@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 16px;
   animation: fadeIn 0.2s ease;
 }
 
@@ -106,6 +107,23 @@
   transform: translateY(-1px);
 }
 
+/* ── Celular ── */
+@media (max-width: 767px) {
+  .formulario {
+    padding: 24px 20px;
+    border-radius: 14px;
+    /* En móvil se ancla abajo como un bottom sheet */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    animation: slideUpSheet 0.3s ease;
+  }
+}
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
@@ -114,4 +132,9 @@
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes slideUpSheet {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0);    }
 }

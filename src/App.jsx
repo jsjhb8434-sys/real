@@ -20,19 +20,27 @@ function App() {
     { id: 7, titulo: "Implementar autenticación segura",  fecha: "30 May", estado: "completada" },
   ])
 
-  // ✅ Aplica .dark al <html> completo para que todo el fondo cambie
   useEffect(() => {
-    if (oscuro) {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
+    document.documentElement.classList.toggle('dark', oscuro)
   }, [oscuro])
 
   const pendientes  = tareas.filter(t => t.estado === 'pendiente')
   const enProgreso  = tareas.filter(t => t.estado === 'progreso')
   const completadas = tareas.filter(t => t.estado === 'completada')
 
+  // ✅ Mueve la tarea a "completada"
+  const completarTarea = (id) => {
+    setTareas(prev =>
+      prev.map(t => t.id === id ? { ...t, estado: 'completada' } : t)
+    )
+  }
+
+  // 🗑 Elimina la tarea
+  const eliminarTarea = (id) => {
+    setTareas(prev => prev.filter(t => t.id !== id))
+  }
+
+  // ➕ Agrega nueva tarea
   const agregarTarea = (nueva) => {
     setTareas(prev => [...prev, { id: Date.now(), ...nueva }])
     setMostrarFormulario(false)
@@ -60,6 +68,8 @@ function App() {
           pendientes={pendientes}
           enProgreso={enProgreso}
           completadas={completadas}
+          onCompletar={completarTarea}
+          onEliminar={eliminarTarea}
         />
 
         {mostrarFormulario && (

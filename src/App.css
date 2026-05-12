@@ -28,7 +28,6 @@
   --sidebar-width: 200px;
 }
 
-/* ── Modo oscuro ── */
 .dark {
   --color-bg: #0f172a;
   --color-sidebar: #1e293b;
@@ -41,17 +40,24 @@
   --shadow-sidebar: 2px 0 8px rgba(0,0,0,0.3);
 }
 
+html, body, #root {
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  transition: background-color 0.3s;
+  overflow-x: hidden;
+}
+
 body {
   font-family: var(--font-main);
-  background-color: var(--color-bg);
   color: var(--color-text);
-  min-height: 100vh;
-  transition: background-color 0.3s, color 0.3s;
 }
 
 .app {
   display: flex;
   min-height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .app__main {
@@ -59,15 +65,70 @@ body {
   margin-left: var(--sidebar-width);
   padding: 36px 48px;
   min-height: 100vh;
-}
-
-#root {
-  min-height: 100vh;
   background-color: var(--color-bg);
   transition: background-color 0.3s;
 }
 
-html, body {
-  min-height: 100vh;
-  background-color: var(--color-bg);
+/* ── Overlay para cerrar sidebar en móvil ── */
+.app__overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 40;
+}
+
+.app__overlay--visible {
+  display: block;
+}
+
+/* ════════════════════════════════════════
+   BREAKPOINTS
+   320–480  → celular pequeño
+   481–767  → celular grande
+   768–1024 → tablet
+   1025–1440→ laptop
+   1441+    → desktop grande
+════════════════════════════════════════ */
+
+/* ── Tablet (768–1024px) ── */
+@media (max-width: 1024px) {
+  :root {
+    --sidebar-width: 180px;
+  }
+
+  .app__main {
+    padding: 28px 32px;
+  }
+}
+
+/* ── Celular grande (481–767px) ── */
+@media (max-width: 767px) {
+  :root {
+    --sidebar-width: 0px;
+  }
+
+  .app__main {
+    margin-left: 0;
+    padding: 80px 16px 24px;
+  }
+}
+
+/* ── Celular pequeño (320–480px) ── */
+@media (max-width: 480px) {
+  .app__main {
+    padding: 72px 12px 20px;
+  }
+}
+
+/* ── Desktop grande (1441px+) ── */
+@media (min-width: 1441px) {
+  :root {
+    --sidebar-width: 220px;
+  }
+
+  .app__main {
+    padding: 44px 64px;
+    max-width: 1600px;
+  }
 }

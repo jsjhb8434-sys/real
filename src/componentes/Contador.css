@@ -18,8 +18,38 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  flex-wrap: wrap;
 }
 
 .contador__sep {
   opacity: 0.4;
+}
+
+/* ── Tablet ── */
+@media (max-width: 1024px) {
+  .contador__saludo {
+    font-size: 1.75rem;
+  }
+}
+
+/* ── Celular grande ── */
+@media (max-width: 767px) {
+  .contador__saludo {
+    font-size: 1.5rem;
+  }
+
+  .contador__resumen {
+    font-size: 0.82rem;
+  }
+}
+
+/* ── Celular pequeño ── */
+@media (max-width: 480px) {
+  .contador__saludo {
+    font-size: 1.3rem;
+  }
+
+  .contador {
+    margin-bottom: 20px;
+  }
 }
